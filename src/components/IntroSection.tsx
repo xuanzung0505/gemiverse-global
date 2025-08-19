@@ -5,10 +5,9 @@ import Link from "next/link";
 function IntroSection() {
   return (
     <div className="flex flex-col gap-4 bg-[#061442] py-3 px-2 md:px-80 items-center">
-      <div
-        className={`font-bold sm:text-center text-4xl my-10 text-[#2ed9ff] text-shadow-lg animate-bounce`}
-      >
-        Gemiverse
+      <div className="my-10 text-[#2ed9ff] text-shadow-lg font-bold sm:text-center text-4xl">
+        <span>Into the </span>
+        <span className={`inline-block animate-bounce animate-color-loop`}>Gemiverse</span>
       </div>
       <div className="relative flex rounded-3xl justify-center overflow-hidden sm:bg-[#00ecfa] max-w-[752px] md:w-[752px]">
         <Image

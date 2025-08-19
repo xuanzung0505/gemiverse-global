@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+@theme {
+  --animate-color-loop: color-loop 2s infinite alternate;
+  @keyframes color-loop {
+    0%,
+    100% {
+      color: white;
+    }
+    50% {
+      color: #0084d1;
+    }
+  }
+}
