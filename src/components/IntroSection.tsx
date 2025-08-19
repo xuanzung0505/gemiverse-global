@@ -65,7 +65,7 @@ function IntroSection() {
           className="max-w-full rounded-t-3xl sm:rounded-none"
         />
         <div
-          className={`absolute bottom-0 italic text-blue-800 font-semibold font-mono backdrop-blur-md
+          className={`absolute bottom-0 italic text-sky-950 font-semibold font-mono backdrop-blur-md
             rounded-b-2xl p-2`}
         >
           <p>Join Our Quest</p>
