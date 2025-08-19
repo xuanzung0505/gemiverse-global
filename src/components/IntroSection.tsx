@@ -32,7 +32,7 @@ function IntroSection() {
           <p>Pixel by pixel, we build new worlds.</p>
         </div>
       </div>
-      <div className="relative bg-black h-[400px] rounded-3xl max-w-[752px] md:w-[752px]">
+      <div className="relative bg-black h-[400px] rounded-3xl max-w-[752px] md:w-[752px] overflow-hidden">
         <Image
           src="/tetris.jpg"
           alt="Gameboy"
@@ -49,7 +49,7 @@ function IntroSection() {
           </p>
           <Link
             href="/"
-            className="text-xs italic underline float-right mt-2 mx-2"
+            className="text-xs italic underline float-right mt-2 mx-2 hover:translate-x-1 transition-all duration-500"
           >
             View our games
           </Link>
@@ -77,7 +77,7 @@ function IntroSection() {
           </p>
           <Link
             href="/"
-            className="text-xs italic underline float-right mt-2 mx-2"
+            className="text-xs italic underline float-right mt-2 mx-2 hover:translate-x-1 transition-all duration-500"
           >
             Our career path
           </Link>
