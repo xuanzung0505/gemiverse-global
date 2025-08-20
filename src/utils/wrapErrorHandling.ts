@@ -1,15 +1,14 @@
 export default function wrapErrorHandling(
-  request: Request,
-  callback: (params: unknown) => unknown
+  callback: (request: Request) => Promise<unknown>
 ) {
-  return (function () {
+  return async function (request: Request) {
     try {
-      callback(request);
+      return await callback(request);
     } catch (error: unknown) {
       return Response.json({
         error:
           error instanceof Error ? error.message : "An unknown error occurred",
       });
     }
-  })();
+  };
 }
