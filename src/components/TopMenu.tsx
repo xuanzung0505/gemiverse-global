@@ -7,8 +7,8 @@ import GamesIcon from "@mui/icons-material/Games";
 function TopMenu() {
   return (
     <div
-      className={`flex bg-sky-600 items-center drop-shadow-2xl sticky top-0 z-1 sm:px-10 gap-2 
-        md:gap-20 justify-center`}
+      className={`flex bg-sky-600 items-center drop-shadow-2xl sticky top-0 sm:px-10 gap-2 
+        md:gap-20 justify-center z-10`}
     >
       <div className="flex grow-1 justify-center">
         <Link href="/">
