@@ -11,20 +11,19 @@ export default function PublishAppAdsPage() {
   };
 
   const submitAppAds = () => {
-    fetch("http://localhost:3000/api/app-ads", {
-      // Or an external API URL
+    fetch(`${process.env.NEXT_PUBLIC_HOST}/api/app-ads`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ data }), // Data to send
+      body: JSON.stringify({ data }),
     }).then((response) => {
-      if (response.error) console.log(response.error);
+      // if (response.error) console.log(response.error);
     });
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/app-ads`)
+    fetch(`${process.env.NEXT_PUBLIC_HOST}/api/app-ads`)
       .then((res) => res.json())
       .then((response) => {
         if (response.error) console.log(response.error);
