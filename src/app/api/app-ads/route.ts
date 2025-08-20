@@ -1,9 +1,12 @@
 import { readStaticFile, writeStaticFile } from "@/services/fileService";
+import wrapErrorHandling from "@/utils/wrapErrorHandling";
 
-export async function GET(request: Request) {
-  const appAdsFile = readStaticFile("/app-ads.txt");
-  return Response.json(appAdsFile.toString());
-}
+export const GET = (request: Request) => {
+  return wrapErrorHandling(request, () => {
+    const appAdsFile = readStaticFile("/app-ads.txt");
+    return Response.json({ success: true, data: appAdsFile.toString() });
+  });
+};
 
 export async function POST(request: Request) {
   const data = request.body?.toString();

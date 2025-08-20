@@ -4,11 +4,20 @@ import path from "path";
 const STATIC_DIR = path.join(process.cwd(), "public");
 
 const readStaticFile = (dir: string) => {
-  return fs.readFileSync(path.join(STATIC_DIR, dir));
+  try {
+    const file = fs.readFileSync(path.join(STATIC_DIR, dir));
+    return file;
+  } catch {
+    throw new Error("error when reading file");
+  }
 };
 
 const writeStaticFile = (dir: string, data: string) => {
-  fs.writeFileSync(path.join(STATIC_DIR, dir), data);
+  try {
+    fs.writeFileSync(path.join(STATIC_DIR, dir), data);
+  } catch {
+    throw new Error("error when writing file");
+  }
 };
 
 export { readStaticFile, writeStaticFile };
