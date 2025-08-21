@@ -3,8 +3,15 @@ import * as React from "react";
 import Link from "next/link";
 import { IconButton } from "@mui/material";
 import GamesIcon from "@mui/icons-material/Games";
+import { usePathname } from "next/navigation";
 
 function TopMenu() {
+  const paths = [
+    { title: "Career", url: "/career" },
+    { title: "About", url: "/about" },
+  ];
+  const pathName = usePathname();
+
   return (
     <div
       className={`flex bg-sky-600 items-center drop-shadow-2xl sticky top-0 sm:px-10 gap-2 
@@ -18,12 +25,17 @@ function TopMenu() {
         </Link>
       </div>
       <div className="grow-4 flex justify-center sm:justify-center gap-10 sm:gap-24">
-        <Link href="/" className="font-bold hover:text-white">
-          Career
-        </Link>
-        <Link href="/about" className="font-bold hover:text-white">
-          About us
-        </Link>
+        {paths.map((path, idx) => (
+          <Link
+            href={path.url}
+            className={`font-bold hover:text-white ${
+              path.url === pathName ? "text-white" : "hover:text-white"
+            }`}
+            key={idx}
+          >
+            {path.title}
+          </Link>
+        ))}
       </div>
     </div>
   );
