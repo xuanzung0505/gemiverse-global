@@ -4,6 +4,7 @@ export const uploadFile = async (filename: string, data: string) => {
   const { url } = await put(filename, data, {
     access: "public",
     allowOverwrite: true,
+    cacheControlMaxAge: 60,
   });
   return url;
 };
