@@ -1,5 +1,7 @@
 "use client";
+import fetchBlob from "@/services/fetchBlob";
 import { Button, TextField } from "@mui/material";
+import { ListBlobResultBlob } from "@vercel/blob";
 import { useEffect, useRef, useState } from "react";
 
 export default function PublishAppAdsPage() {
@@ -28,8 +30,22 @@ export default function PublishAppAdsPage() {
       .then((response) => {
         if (response.error) console.log(response.error);
         if (response.success) {
-          originalData.current = response.data;
-          setData(response.data);
+          const listBlobs = response.data;
+          const appAdsBlob = (listBlobs as ListBlobResultBlob[]).find(
+            (blob) => blob.pathname === "app-ads.txt"
+          );
+          // found blob
+          if (appAdsBlob) {
+            fetchBlob(appAdsBlob.url)
+              .then((res) => res?.text() ?? "")
+              .then((data) => {
+                originalData.current = data;
+                setData(data);
+              })
+              .catch((err) => {
+                console.log("Error when download blob client-side", err);
+              });
+          }
         }
       });
   }, []);
