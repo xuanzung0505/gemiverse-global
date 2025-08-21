@@ -21,7 +21,7 @@ function TopMenu() {
         <Link href="/" className="font-bold hover:text-white">
           Career
         </Link>
-        <Link href="/" className="font-bold hover:text-white">
+        <Link href="/about" className="font-bold hover:text-white">
           About us
         </Link>
       </div>

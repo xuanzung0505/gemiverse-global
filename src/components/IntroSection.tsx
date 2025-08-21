@@ -36,7 +36,7 @@ function IntroSection() {
       <div className="relative bg-black h-[400px] rounded-3xl max-w-[752px] md:w-[752px] overflow-hidden">
         <Image
           src="/tetris.jpg"
-          alt="Gameboy"
+          alt="tetris"
           width={500}
           height={500}
           className="max-w-full rounded-3xl"
@@ -61,7 +61,7 @@ function IntroSection() {
       >
         <Image
           src="/boy-gaming.avif"
-          alt="Gameboy"
+          alt="boy-gaming"
           width={500}
           height={500}
           className="max-w-full rounded-t-3xl sm:rounded-none"
