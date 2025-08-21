@@ -36,7 +36,7 @@ export default function PublishAppAdsPage() {
           );
           // found blob
           if (appAdsBlob) {
-            fetchBlob(appAdsBlob.url+"?v=123456")
+            fetchBlob(appAdsBlob.url + `?v=${Math.floor(Math.random() * 1000)}`)
               .then((res) => res?.text() ?? "")
               .then((data) => {
                 originalData.current = data;

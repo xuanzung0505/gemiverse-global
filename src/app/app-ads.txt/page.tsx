@@ -11,7 +11,7 @@ export default async function PublishAppAdsPage() {
       (blob) => blob.pathname === "app-ads.txt"
     );
     if (appAdsBlob) {
-      const blob = await fetchBlob(appAdsBlob.url + "?v=123456");
+      const blob = await fetchBlob(appAdsBlob.url + `?v=${Math.floor(Math.random() * 1000)}`);
       const text = (await blob?.text()) ?? "";
       return <>{text}</>;
     }
