@@ -1,5 +1,5 @@
-import fetchBlob from "@/services/fetchBlob";
 import { ListBlobResultBlob } from "@vercel/blob";
+import { redirect } from "next/navigation";
 
 export default async function PublishAppAdsPage() {
   const response = await (
@@ -11,11 +11,9 @@ export default async function PublishAppAdsPage() {
       (blob) => blob.pathname === "app-ads.txt"
     );
     if (appAdsBlob) {
-      const blob = await fetchBlob(appAdsBlob.url + `?v=${Math.floor(Math.random() * 1000)}`);
-      const text = (await blob?.text()) ?? "";
-      return <>{text}</>;
+      redirect(appAdsBlob.url);
     }
   }
 
-  <div></div>;
+  return <div>Fetch failed</div>;
 }
