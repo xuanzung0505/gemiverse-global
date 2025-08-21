@@ -25,7 +25,7 @@ export default function PublishAppAdsPage() {
   };
 
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_HOST}/api/app-ads`)
+    fetch(`${process.env.NEXT_PUBLIC_HOST}/api/app-ads`, { cache: "no-store" })
       .then((res) => res.json())
       .then((response) => {
         if (response.error) console.log(response.error);
@@ -36,7 +36,7 @@ export default function PublishAppAdsPage() {
           );
           // found blob
           if (appAdsBlob) {
-            fetchBlob(appAdsBlob.url)
+            fetchBlob(appAdsBlob.url+"?v=123456")
               .then((res) => res?.text() ?? "")
               .then((data) => {
                 originalData.current = data;
